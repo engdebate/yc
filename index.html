@@ -1,1 +1,225 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jessica Chi 紀蘊倢｜自我介紹主頁</title>
+    <style>
+      :root {
+        --paper: #f4f4f4;
+        --ink: #111;
+        --ink-soft: #444;
+        --line: #666;
+        --card: #ffffff;
+      }
 
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #dbdbdb;
+        color: var(--ink);
+        font-family: "Noto Serif TC", "PMingLiU", "MingLiU", "Times New Roman", serif;
+      }
+
+      .paper {
+        max-width: 1120px;
+        margin: 20px auto;
+        border: 2px solid var(--line);
+        background: var(--paper);
+      }
+
+      .masthead {
+        padding: 20px 24px;
+        border-bottom: 2px solid var(--line);
+      }
+
+      .masthead h1 {
+        margin: 0;
+        font-size: clamp(1.7rem, 4vw, 2.5rem);
+        letter-spacing: 0.06em;
+      }
+
+      .masthead p {
+        margin: 8px 0 0;
+        color: var(--ink-soft);
+      }
+
+      .sliding-bar {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        gap: 10px;
+        padding: 10px 12px;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-bottom: 2px solid var(--line);
+        background: #ececec;
+      }
+
+      .tab {
+        text-decoration: none;
+        color: var(--ink);
+        border: 1px solid var(--line);
+        background: #fff;
+        padding: 8px 12px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 14px;
+        padding: 16px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero-photo {
+        border: 1px solid var(--line);
+        min-height: 360px;
+        background: #d7d7d7 url("IMG_1289 4.JPG") center 25% / cover no-repeat;
+      }
+
+      .hero-intro {
+        border: 1px solid var(--line);
+        background: var(--card);
+        padding: 14px;
+        line-height: 1.75;
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(260px, 1fr));
+        gap: 14px;
+        padding: 16px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        background: var(--card);
+        padding: 12px;
+      }
+
+      .card h3 {
+        margin: 0 0 10px;
+        line-height: 1.4;
+      }
+
+      .photo {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        border: 1px solid #9a9a9a;
+        background-color: #dcdcdc;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .photo-global {
+        background-position: center 30%;
+      }
+
+      .caption {
+        margin: 8px 0 0;
+        color: var(--ink-soft);
+      }
+
+      .achievements {
+        margin: 0 16px 16px;
+      }
+
+      .achievements h2 {
+        margin: 0 0 8px;
+      }
+
+      .achievements ul {
+        margin: 0;
+        padding-left: 18px;
+        line-height: 1.85;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="paper" id="home">
+      <header class="masthead">
+        <h1>Jessica Chi 紀蘊倢</h1>
+        <p>自我介紹專欄｜黑白報紙風格版</p>
+      </header>
+
+      <nav class="sliding-bar" aria-label="主題導覽">
+        <a class="tab" href="#debate">英語辯論</a>
+        <a class="tab" href="#global">國際交流</a>
+        <a class="tab" href="#dance">舞蹈表演</a>
+        <a class="tab" href="#science">科學探索</a>
+        <a class="tab" href="#innovation">創新設計</a>
+        <a class="tab" href="#home">回到主頁</a>
+      </nav>
+
+      <section class="hero" aria-label="首頁主視覺">
+        <div class="hero-photo" aria-label="Jessica Chi 紀蘊倢主視覺照片"></div>
+        <article class="hero-intro">
+          <h2>關於我</h2>
+          <p>
+            我是 Jessica Chi 紀蘊倢，喜歡在不同領域中學習與實踐，從英語辯論、國際交流到舞蹈表演，
+            再到科學探索與創新設計。
+          </p>
+          <p>這個頁面整理了我的五大主題與特殊優良表現，作為後續自我介紹網站的基礎版面。</p>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="card" id="debate">
+          <h3>在辯論中擁抱未知</h3>
+          <div class="photo" style='background-image: url("2C420FE4-2A4C-4CAD-B0A7-4FBC50CF4869");' aria-label="英語辯論照片"></div>
+          <p class="caption">英語辯論</p>
+        </article>
+
+        <article class="card" id="global">
+          <h3>從校園交流到國際對話</h3>
+          <div class="photo photo-global" style='background-image: url("截圖 2026-04-05 下午6.56.53.png");' aria-label="國際交流照片（聚焦黑色衣服笑著的女孩）"></div>
+          <p class="caption">國際交流</p>
+        </article>
+
+        <article class="card" id="dance">
+          <h3>熱愛與自我回聲</h3>
+          <div class="photo" style='background-image: url("IMG_1890.JPG");' aria-label="舞蹈表演照片"></div>
+          <p class="caption">舞蹈表演</p>
+        </article>
+
+        <article class="card" id="science">
+          <h3>好奇心的反應式</h3>
+          <div class="photo" style='background-image: url("IMG_0388.heic");' aria-label="科學探索照片"></div>
+          <p class="caption">科學探索</p>
+        </article>
+
+        <article class="card" id="innovation">
+          <h3>思考、觀察與創意</h3>
+          <div class="photo" style='background-image: url("IMG_0562.JPG");' aria-label="創新設計照片"></div>
+          <p class="caption">創新設計</p>
+        </article>
+      </section>
+
+      <section class="card achievements" aria-label="特殊優良表現">
+        <h2>特殊優良表現</h2>
+        <ul>
+          <li>115學年度 國泰卓越獎助計畫 獲獎者</li>
+          <li>114學年度 臺灣 辯士成就獎（Debater of the Year）</li>
+          <li>114學年度 臺北市 優良學生</li>
+          <li>113學年度 北一女中 學生議會議長</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
