@@ -6,40 +6,58 @@
     <title>Jessica Chi 紀蘊倢｜自我介紹主頁</title>
     <style>
       :root {
-        --paper: #f4f4f4;
+        --paper: #f5f5f5;
+        --paper-2: #ececec;
         --ink: #111;
-        --ink-soft: #444;
-        --line: #666;
-        --card: #ffffff;
+        --ink-soft: #4b4b4b;
+        --line: #7a7a7a;
+        --card: rgba(255, 255, 255, 0.92);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
-        background: #dbdbdb;
+        background: radial-gradient(circle at 20% 10%, #e8e8e8, #d7d7d7 58%, #cfcfcf);
         color: var(--ink);
         font-family: "Noto Serif TC", "PMingLiU", "MingLiU", "Times New Roman", serif;
       }
 
+      .scroll-progress {
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: 4px;
+        width: 0;
+        z-index: 100;
+        background: linear-gradient(90deg, #1b1b1b, #5a5a5a);
+      }
+
       .paper {
         max-width: 1120px;
-        margin: 20px auto;
-        border: 2px solid var(--line);
-        background: var(--paper);
+        margin: 20px auto 26px;
+        border: 1px solid var(--line);
+        background: linear-gradient(160deg, var(--paper) 0%, var(--paper-2) 100%);
+        box-shadow: var(--shadow);
+        overflow: hidden;
       }
 
       .masthead {
-        padding: 20px 24px;
-        border-bottom: 2px solid var(--line);
+        padding: 22px 24px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.55);
       }
 
       .masthead h1 {
         margin: 0;
         font-size: clamp(1.7rem, 4vw, 2.5rem);
-        letter-spacing: 0.06em;
+        letter-spacing: 0.05em;
       }
 
       .masthead p {
@@ -50,22 +68,30 @@
       .sliding-bar {
         position: sticky;
         top: 0;
-        z-index: 50;
+        z-index: 60;
         display: flex;
         gap: 10px;
-        padding: 10px 12px;
+        padding: 10px 14px;
         overflow-x: auto;
         white-space: nowrap;
-        border-bottom: 2px solid var(--line);
-        background: #ececec;
+        backdrop-filter: blur(6px);
+        background: rgba(236, 236, 236, 0.92);
+        border-bottom: 1px solid var(--line);
       }
 
       .tab {
         text-decoration: none;
         color: var(--ink);
         border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.92);
+        padding: 8px 14px;
+        border-radius: 999px;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+      }
+
+      .tab:hover {
+        transform: translateY(-1px);
         background: #fff;
-        padding: 8px 12px;
       }
 
       .hero {
@@ -77,16 +103,31 @@
       }
 
       .hero-photo {
+        position: relative;
+        min-height: 380px;
+        overflow: hidden;
         border: 1px solid var(--line);
-        min-height: 360px;
-        background: #d7d7d7 url("IMG_1289 4.JPG") center 25% / cover no-repeat;
+        background: #d8d8d8;
+      }
+
+      .parallax-layer {
+        position: absolute;
+        inset: -10% 0;
+        background-position: center 25%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        will-change: transform;
       }
 
       .hero-intro {
         border: 1px solid var(--line);
         background: var(--card);
-        padding: 14px;
-        line-height: 1.75;
+        padding: 16px;
+        line-height: 1.8;
+      }
+
+      .hero-intro h2 {
+        margin-top: 0;
       }
 
       .content-grid {
@@ -100,24 +141,36 @@
         border: 1px solid var(--line);
         background: var(--card);
         padding: 12px;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05);
+        transform: translateY(16px);
+        opacity: 0;
+        transition: transform 0.55s ease, opacity 0.55s ease;
+      }
+
+      .card.show {
+        transform: translateY(0);
+        opacity: 1;
       }
 
       .card h3 {
         margin: 0 0 10px;
-        line-height: 1.4;
+        line-height: 1.45;
       }
 
       .photo {
-        width: 100%;
-        aspect-ratio: 4 / 3;
+        position: relative;
+        height: 220px;
+        overflow: hidden;
         border: 1px solid #9a9a9a;
-        background-color: #dcdcdc;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        background: #dcdcdc;
       }
 
-      .photo-global {
+      .photo .parallax-layer {
+        inset: -18% 0;
+        background-position: center;
+      }
+
+      .photo-global .parallax-layer {
         background-position: center 30%;
       }
 
@@ -148,14 +201,20 @@
         .content-grid {
           grid-template-columns: 1fr;
         }
+
+        .hero-photo {
+          min-height: 320px;
+        }
       }
     </style>
   </head>
   <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
     <main class="paper" id="home">
       <header class="masthead">
         <h1>Jessica Chi 紀蘊倢</h1>
-        <p>自我介紹專欄｜黑白報紙風格版</p>
+        <p>自我介紹專欄｜黑白報紙風 x 現代滾動視差</p>
       </header>
 
       <nav class="sliding-bar" aria-label="主題導覽">
@@ -168,8 +227,10 @@
       </nav>
 
       <section class="hero" aria-label="首頁主視覺">
-        <div class="hero-photo" aria-label="Jessica Chi 紀蘊倢主視覺照片"></div>
-        <article class="hero-intro">
+        <div class="hero-photo" aria-label="Jessica Chi 紀蘊倢主視覺照片">
+          <div class="parallax-layer" data-speed="0.18" style='background-image: url("IMG_1289 4.JPG");'></div>
+        </div>
+        <article class="hero-intro card show">
           <h2>關於我</h2>
           <p>
             我是 Jessica Chi 紀蘊倢，喜歡在不同領域中學習與實踐，從英語辯論、國際交流到舞蹈表演，
@@ -182,7 +243,9 @@
       <section class="content-grid">
         <article class="card" id="debate">
           <h3>在辯論中擁抱未知</h3>
-          <div class="photo" style='background-image: url("2C420FE4-2A4C-4CAD-B0A7-4FBC50CF4869");' aria-label="英語辯論照片"></div>
+          <div class="photo" aria-label="英語辯論照片">
+            <div class="parallax-layer" data-speed="0.14" style='background-image: url("2C420FE4-2A4C-4CAD-B0A7-4FBC50CF4869");'></div>
+          </div>
           <p class="caption">英語辯論</p>
         </article>
 
