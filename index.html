@@ -1,1 +1,214 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的自我介紹｜報紙風格主頁</title>
+    <style>
+      :root {
+        --paper: #f3ead7;
+        --paper-dark: #e8dcc3;
+        --ink: #1f2a5a;
+        --ink-soft: #34447e;
+        --line: #b39b72;
+      }
 
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: radial-gradient(circle at top, #fbf5e8 0%, var(--paper) 40%, #e7dbc2 100%);
+        color: var(--ink);
+        font-family: "Noto Serif TC", "PMingLiU", "MingLiU", "Times New Roman", serif;
+      }
+
+      .paper {
+        max-width: 1100px;
+        margin: 24px auto;
+        border: 2px solid var(--line);
+        background: linear-gradient(180deg, #f8efdd 0%, var(--paper) 100%);
+        box-shadow: 0 8px 20px rgba(53, 43, 25, 0.15);
+      }
+
+      .masthead {
+        padding: 20px 24px 12px;
+        border-bottom: 2px solid var(--line);
+      }
+
+      .masthead h1 {
+        margin: 0;
+        letter-spacing: 0.08em;
+        font-size: clamp(1.7rem, 4vw, 2.5rem);
+      }
+
+      .masthead p {
+        margin: 8px 0 0;
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+      }
+
+      .sliding-bar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 10px 12px;
+        border-bottom: 2px solid var(--line);
+        background: linear-gradient(180deg, var(--paper-dark) 0%, #efdfc0 100%);
+      }
+
+      .sliding-bar::-webkit-scrollbar {
+        height: 7px;
+      }
+
+      .sliding-bar::-webkit-scrollbar-thumb {
+        background: #b79d72;
+        border-radius: 99px;
+      }
+
+      .tab {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: var(--ink);
+        border: 1px solid var(--line);
+        background: #f7efd9;
+        padding: 8px 14px;
+        min-width: max-content;
+        font-size: 0.95rem;
+        letter-spacing: 0.03em;
+        transition: all 0.2s ease;
+      }
+
+      .tab:hover {
+        background: #efe0bc;
+        transform: translateY(-1px);
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 14px;
+        padding: 16px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        background: rgba(255, 249, 234, 0.78);
+        min-height: 180px;
+        padding: 12px;
+      }
+
+      .card h2,
+      .card h3 {
+        margin: 0 0 8px;
+        font-weight: 700;
+      }
+
+      .lead {
+        grid-row: span 2;
+      }
+
+      .lead figure {
+        margin: 0;
+      }
+
+      .lead img {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: center 25%;
+        border: 1px solid var(--line);
+      }
+
+      .caption {
+        font-size: 0.9rem;
+        margin-top: 8px;
+        color: var(--ink-soft);
+      }
+
+      .placeholder {
+        display: grid;
+        place-items: center;
+        text-align: center;
+        color: var(--ink-soft);
+        border-style: dashed;
+      }
+
+      @media (max-width: 860px) {
+        .content-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .lead {
+          grid-column: 1 / -1;
+          grid-row: auto;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="paper" id="home">
+      <header class="masthead">
+        <h1>自我介紹專欄</h1>
+        <p>以報紙版面為靈感，逐步記錄我的故事、興趣與作品。</p>
+      </header>
+
+      <nav class="sliding-bar" aria-label="主題導覽">
+        <a class="tab" href="#debate">英語辯論</a>
+        <a class="tab" href="#global">國際交流</a>
+        <a class="tab" href="#science">科學探索</a>
+        <a class="tab" href="#innovation">創新設計</a>
+        <a class="tab" href="#dance">舞蹈表演</a>
+        <a class="tab" href="#home">回到主頁</a>
+      </nav>
+
+      <section class="content-grid">
+        <article class="card lead">
+          <h2>封面人物</h2>
+          <figure>
+            <img src="IMG_1289 4.JPG" alt="個人形象照片" />
+            <figcaption class="caption">主視覺已放入上傳至 GitHub 的個人照片（以人像為主）。</figcaption>
+          </figure>
+        </article>
+
+        <article class="card placeholder" id="debate">
+          <h3>英語辯論</h3>
+          <p>預留內容區塊</p>
+        </article>
+
+        <article class="card placeholder" id="global">
+          <h3>國際交流</h3>
+          <p>預留內容區塊</p>
+        </article>
+
+        <article class="card placeholder" id="science">
+          <h3>科學探索</h3>
+          <p>預留內容區塊</p>
+        </article>
+
+        <article class="card placeholder" id="innovation">
+          <h3>創新設計</h3>
+          <p>預留內容區塊</p>
+        </article>
+
+        <article class="card placeholder" id="dance">
+          <h3>舞蹈表演</h3>
+          <p>預留內容區塊</p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
