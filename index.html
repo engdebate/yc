@@ -251,33 +251,25 @@
 
         <article class="card" id="global">
           <h3>從校園交流到國際對話</h3>
-          <div class="photo photo-global" aria-label="國際交流照片（聚焦黑色衣服笑著的女孩）">
-            <div class="parallax-layer" data-speed="0.14" style='background-image: url("截圖 2026-04-05 下午6.56.53.png");'></div>
-          </div>
+          <div class="photo photo-global" style='background-image: url("截圖 2026-04-05 下午6.56.53.png");' aria-label="國際交流照片（聚焦黑色衣服笑著的女孩）"></div>
           <p class="caption">國際交流</p>
         </article>
 
         <article class="card" id="dance">
           <h3>熱愛與自我回聲</h3>
-          <div class="photo" aria-label="舞蹈表演照片">
-            <div class="parallax-layer" data-speed="0.14" style='background-image: url("IMG_1890.JPG");'></div>
-          </div>
+          <div class="photo" style='background-image: url("IMG_1890.JPG");' aria-label="舞蹈表演照片"></div>
           <p class="caption">舞蹈表演</p>
         </article>
 
         <article class="card" id="science">
           <h3>好奇心的反應式</h3>
-          <div class="photo" aria-label="科學探索照片">
-            <div class="parallax-layer" data-speed="0.14" style='background-image: url("IMG_0388.heic");'></div>
-          </div>
+          <div class="photo" style='background-image: url("IMG_0388.heic");' aria-label="科學探索照片"></div>
           <p class="caption">科學探索</p>
         </article>
 
         <article class="card" id="innovation">
           <h3>思考、觀察與創意</h3>
-          <div class="photo" aria-label="創新設計照片">
-            <div class="parallax-layer" data-speed="0.14" style='background-image: url("IMG_0562.JPG");'></div>
-          </div>
+          <div class="photo" style='background-image: url("IMG_0562.JPG");' aria-label="創新設計照片"></div>
           <p class="caption">創新設計</p>
         </article>
       </section>
@@ -292,40 +284,5 @@
         </ul>
       </section>
     </main>
-
-    <script>
-      const progressBar = document.querySelector('.scroll-progress');
-      const parallaxLayers = document.querySelectorAll('.parallax-layer');
-      const revealCards = document.querySelectorAll('.card:not(.show)');
-
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('show');
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-
-      revealCards.forEach((card) => revealObserver.observe(card));
-
-      function handleScroll() {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        progressBar.style.width = `${progress}%`;
-
-        parallaxLayers.forEach((layer) => {
-          const speed = Number(layer.dataset.speed || 0.12);
-          layer.style.transform = `translateY(${scrollTop * speed}px)`;
-        });
-      }
-
-      handleScroll();
-      window.addEventListener('scroll', handleScroll, { passive: true });
-    </script>
   </body>
 </html>
